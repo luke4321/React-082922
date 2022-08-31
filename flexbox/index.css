@@ -1,0 +1,50 @@
+
+.flex-container {
+    border: solid;
+    /* height: 300px; */
+    display: flex;
+    /* flex-direction: column; */
+    flex-wrap: wrap; 
+
+    height: 50vh;
+    width: 50vw;
+    /* flex-direction: column-reverse; */
+    /* justify-content: flex-start; */
+    /* justify-content: center; */
+    align-content: center;
+    /* align-item: flex-start; */
+    
+
+    
+}
+
+.item1 {
+    height: 50px;
+    width: 50px;
+    margin: 10px;
+    background-color: bisque;
+}
+.item2 {
+    height: 90px;
+    width: 50px;
+    margin: 10px;
+    background-color: bisque;
+}
+.item3 {
+    height: 70px;
+    width: 50px;
+    margin: 10px;
+    background-color: bisque;
+}
+.item4 {
+    height: 80px;
+    width: 50px;
+    margin: 10px;
+    background-color: bisque;
+}
+.item5 {
+    height: 60px;
+    width: 50px;
+    margin: 10px;
+    background-color: bisque;
+}

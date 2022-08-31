@@ -1,0 +1,46 @@
+:root{
+    --box-width: 50px;
+    --box-height: 50px;
+}
+
+*{  
+    margin: 0;
+    padding: 0;
+    font-size: 10px;
+    font-family: 'Edu NSW ACT Foundation', cursive;
+}
+ 
+#myh1 {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    height: var(--box-height);
+    width: var(--box-width);
+    border: solid;
+    /* font-size: 50px; */
+}
+
+#myh2 {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    height: 80px;
+    width: 80px;
+    /* font-size: 2rem;   */
+    background: purple;
+}
+
+#myh3 {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    height: 80px;
+    width: 80px;
+    /* font-size: 2rem;   */
+    background: purple;
+} */
+
+
+
+
+
