@@ -173,62 +173,62 @@
 //     }
 // }
 
-const obj = {}
-console.log(obj);
+// const obj = {}
+// console.log(obj);
 
-class Person {
-    #name;
-    #age;
-    #height;
-    constructor(name, age, height) {
-        this.#name = name;
-        this.#age = age;
-        this.#height = height;
-    }
+// class Person {
+//     #name;
+//     #age;
+//     #height;
+//     constructor(name, age, height) {
+//         this.#name = name;
+//         this.#age = age;
+//         this.#height = height;
+//     }
 
-    get name() {
-        return this.#name;
-    }
+//     get name() {
+//         return this.#name;
+//     }
 
-    set name(newName) {
-        this.#name = newName;
-    }
+//     set name(newName) {
+//         this.#name = newName;
+//     }
 
-    run() {
-        console.log(this.#name + ' is running');
-    }
-}
+//     run() {
+//         console.log(this.#name + ' is running');
+//     }
+// }
 
-const p = new Person('Dio', 18, 5.8);
-// console.log(p.name);
-p.name = 'Jojo';
-console.log(p)
+// const p = new Person('Dio', 18, 5.8);
+// // console.log(p.name);
+// p.name = 'Jojo';
+// console.log(p)
 
-class Employee extends Person {
-    constructor (area, company) {
-        super(area);
-        this.company = company;
-    }
+// class Employee extends Person {
+//     constructor (area, company) {
+//         super(area);
+//         this.company = company;
+//     }
     
-}
+// }
 
-Person.prototype.jump = function () {
-    console.log(`${this.name} is jumping`)
-}
+// Person.prototype.jump = function () {
+//     console.log(`${this.name} is jumping`)
+// }
 
-const e = new Employee('Patrick', 20, 6.3, 'Antra');
+// const e = new Employee('Patrick', 20, 6.3, 'Antra');
 // e.run();
 
 // e.jump();
 
-e.__proto__.swim = function () {
-    console.log(`${this.name} is swiming`)
-}
+// e.__proto__.swim = function () {
+//     console.log(`${this.name} is swiming`)
+// }
 
-console.log(e);
-e.swim();
+// console.log(e);
+// e.swim();
 
-Employee2.prototype = Object.create(Person.prototype);
+// Employee2.prototype = Object.create(Person.prototype);
 
 
 // Constructor function 
@@ -239,7 +239,25 @@ Employee2.prototype = Object.create(Person.prototype);
 
 // Loop 
 
+// const arr = [1, 2, 3];
+// console.log(arr);
 
+// for (let i = 0; i < arr.length; i++) {
+//     console.log(arr[i]);
+// }
+
+// for in vs for of 
+// for (const i in arr) {
+//     console.log(arr[i]);
+// }
+
+// arr['0'] --> arr[0]
+// arr['1']
+// arr['2']
+
+// for (const ele of arr) {
+//     console.log(ele);
+// }
 
 // Array methods: myForEach myMap myFilter myReduce 
 
