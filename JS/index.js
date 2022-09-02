@@ -166,16 +166,26 @@
 // const dio = new personFn('Dio', 20);
 // console.log(dio);
 
-// class Todo {
-//     constructor (title, id) {
-//         this.title = title;
-//         this.id = id;
-//     }
+// // // extends
+// // personFn.prototype.jump = function () {
+// //     console.log(`${this.name} is jumping`)
+// // }
+// // super
+// function employeeFn(hello, height) {
+//     personFn.call(this, hello);
+//     this.height = height;
+    // this.__proto__ = [...personFn.__proto__, ...this.__proto__];
 // }
+
+// const jojo = new employeeFn('jojo', 10, 6);
+// console.log(jojo);
+
+// jojo.jump();
+
 
 // const obj = {}
 // console.log(obj);
-
+// after es6
 // class Person {
 //     #name;
 //     #age;
@@ -195,28 +205,26 @@
 //     }
 
 //     run() {
-//         console.log(this.#name + ' is running');
+//         console.log(this.#age + ' is running');
 //     }
 // }
 
 // const p = new Person('Dio', 18, 5.8);
-// // console.log(p.name);
+// console.log(p.name);
 // p.name = 'Jojo';
 // console.log(p)
 
 // class Employee extends Person {
-//     constructor (area, company) {
-//         super(area);
+//     constructor (a, b, company) {
+//         super(a, b);
 //         this.company = company;
 //     }
     
 // }
 
-// Person.prototype.jump = function () {
-//     console.log(`${this.name} is jumping`)
-// }
 
 // const e = new Employee('Patrick', 20, 6.3, 'Antra');
+// console.log(e);
 // e.run();
 
 // e.jump();
@@ -228,7 +236,6 @@
 // console.log(e);
 // e.swim();
 
-// Employee2.prototype = Object.create(Person.prototype);
 
 
 // Constructor function 
@@ -260,12 +267,203 @@
 // }
 
 // Array methods: myForEach myMap myFilter myReduce 
+// const arr = [1, 2, 3, 4, 5];
+// arr.forEach(function(ele) {
+//     console.log(ele);
+// })
+// current ele, current index, original array
+
+
+// console.log(Array);
+// Array.prototype.myforEach = function (fn) {
+//     for (let i = 0; i < this.length; i++) {
+//         fn(this[i], i, this);
+//     }
+// }
+// console.log(arr.forEach((ele) => {
+//     // array[i] = ele + 1;
+//     // array.push(i); 
+//     console.log(ele);
+//     // console.log(arr === array);
+// }));
+
+// console.log(arr.map((ele) => {
+//     // array[i] = ele + 1;
+//     // array.push(i); 
+//     console.log(ele);
+//     // console.log(arr === array);
+// }));
+
+// Array.prototype.myMap = function(cb){
+//         let newArr = [];
+//         for (let i = 0; i < this.length; i++){
+//             newArr.push(cb(this[i]));
+//         }
+//         return newArr;
+// }
+
+// arr.myMap((ele) => {
+//     // ele ++; 
+//     console.log(ele); 
+// });
+
+
+// const newarr = arr.myFilter(function (ele, i , array) {
+//     return ele > 3;
+// })
+
+
+
+// Array.prototype.myFilter = function (cb) {
+//     let newArr = [];
+//     for (let i = 0; i < this.length; i++) {
+//         const item = this[i];
+//         if (cb(item)) {
+//             newArr.push(item);
+//         }
+//     }
+//     return newArr;
+// }
+// const newarr = arr.myFilter(function (ele, i , array) {
+//     return ele > 3;
+// })
+
+// console.log(newarr);
+
+// arr.reduce(() => {}, )
+// const numbers = [175, 50, 25];
+
+// const reducer = function (acc, cur) {
+//     return acc + cur;
+// }
+
+// console.log(numbers.reduce(reducer, 100));
+
+// Array.prototype.myReduce = function (callback, initVal) {
+//     let acc = initVal;
+//     for (let i = 0; i < this.length; i++) {
+//         acc = callback(acc, this[i], i , this)
+//     }
+//     return acc;
+// }
+
+// what if we dont know there is a initial value or not.
+// Array.prototype.myReduce = function (...args) {
+//     let acc = 0;
+//     if (args.length === 2) {
+//         acc = args[1];
+//     }
+//     for (let i = 0; i < this.length; i++) {
+//         acc = args[0](acc, this[i], i , this);
+//     }
+//     return acc;
+// }
+
+// console.log(numbers.myReduce(reducer));
 
 // destrucure 
+// const [first, second] = [1, 2, 3];
+
+// console.log(first, second);
+
+// const obj = {name: 'Jojo', age: 18};
+
+// const name = obj.name;
+// const age = obj.age;
+
+// const {age, name, height = "tall"} = obj;
+
+// console.log(name, age, height);
+
+// const {links} = {
+//     id: 1,
+//     name: 'Luke',
+//     links: [
+//         { name: 'wechat',       link: 'wechat.com'      },
+//         { name: 'apple',        link: 'apple.com'       },
+//         { name: 'cnn',          link: 'cnn.com'         },
+//         { name: 'fox',          link: 'fox.com'         },
+//         { name: 'hbo',          link: 'hbo.com'         },
+//     ]
+// };
+
+// console.log(links.find(({name}) => name === 'cnn'));
 
 // rest parameter vs spread operator 
 
+// function foo(...args) {
+//     console.log(arguments);
+//     console.log(arguments[4]);
+//     console.log(...args);
+//     console.log(args);
+// }
+
+// function foo (num, ...args) {
+//     console.log(num);
+//     console.log(args);
+// }
+// foo(1, 2, 3, 4, "abc");
+
+// const arr = [1, 2, 3];
+
+// const arr1 = [...arr, 4, 5];
+
+// console.log(arr1);
+
+// const obj = {
+//      age: 18, name: "jojo",
+// }
+
+
+// const obj1 = {...obj, height: 6};
+// console.log(obj1 == obj); 
+
+
 // object copy 
+// shallow copy: share the reference
+// deep copy: it copies the value with a different reference
+// let arr1 = [1, 2, 3];
+// arr2 = arr1;
+// console.log(arr1 == arr2);
+
+// const obj = {name: 'Jojo', age: 18}
+// // just copy the refence
+// const obj1 = obj;
+// console.log(obj);
+
+const obj = {
+    name: 'Jojo',
+    age: 18,
+    links: [1, 2, 3],
+    date: new Date(), // new Data(obj.date)
+    foo: function() {
+        console.log('this is foo');
+    }
+};
+
+// const obj2 = {...obj};
+
+// // obj2.links = [100, 200, 300];
+// // console.log(obj.links);
+
+// obj2.links[0] = 100;
+// console.log(obj.links);
+
+// method1: 
+
+// json strigify
+
+const obj2 = JSON.parse(JSON.stringify(obj));
+console.log(obj, JSON.parse(JSON.stringify(obj)));
+// console.log(obj == obj2);
+
+// Lodash _.cloneDeep();
+
+
+
+
+
+
 
 // -----------------Day3---------------------------------
 
@@ -294,8 +492,4 @@
 
 // -----------------Day5---------------------------------
 
-// Todolist 
-
-
-
-
+// // Todolis
