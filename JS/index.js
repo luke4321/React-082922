@@ -174,7 +174,7 @@
 // function employeeFn(hello, height) {
 //     personFn.call(this, hello);
 //     this.height = height;
-    // this.__proto__ = [...personFn.__proto__, ...this.__proto__];
+// this.__proto__ = [...personFn.__proto__, ...this.__proto__];
 // }
 
 // const jojo = new employeeFn('jojo', 10, 6);
@@ -219,7 +219,7 @@
 //         super(a, b);
 //         this.company = company;
 //     }
-    
+
 // }
 
 
@@ -431,15 +431,15 @@
 // const obj1 = obj;
 // console.log(obj);
 
-const obj = {
-    name: 'Jojo',
-    age: 18,
-    links: [1, 2, 3],
-    date: new Date(), // new Data(obj.date)
-    foo: function() {
-        console.log('this is foo');
-    }
-};
+// const obj = {
+//     name: 'Jojo',
+//     age: 18,
+//     links: [1, 2, 3],
+//     date: new Date(), // new Data(obj.date)
+//     foo: function() {
+//         console.log('this is foo');
+//     }
+// };
 
 // const obj2 = {...obj};
 
@@ -453,15 +453,11 @@ const obj = {
 
 // json strigify
 
-const obj2 = JSON.parse(JSON.stringify(obj));
-console.log(obj, JSON.parse(JSON.stringify(obj)));
+// const obj2 = JSON.parse(JSON.stringify(obj));
+// console.log(obj, JSON.parse(JSON.stringify(obj)));
 // console.log(obj == obj2);
 
 // Lodash _.cloneDeep();
-
-
-
-
 
 
 
@@ -469,17 +465,304 @@ console.log(obj, JSON.parse(JSON.stringify(obj)));
 
 // iife
 
-// closure
+// var sum = (function(a, b) {
+//     return console.log(a + b);
+// })(1, 2);
 
-// currying
+// sum(1, 2);
+
+// (function() {
+//     console.log(5);
+// })();
+
+
+// (() => {
+//     return console.log(4);
+//   })();
+
+
+// closure
+// function myFn() {
+//     var name = 'Mozilla'; // name is a local variable created by init
+//     function displayName() {
+//         // displayName() is the inner function, a closure
+//         console.log(name); // use variable declared in the parent function
+//     }
+//     return displayName;
+// }
+// console.log(myFn());
+
+// function makeAdder(x) {
+//     return function (y) {
+//         return x + y;
+//     };
+// }
+
+// const add5 = makeAdder(5);
+
+// const res = add5(2); 
+
+// console.log(res);
+
+
+// ------currying---------------
 
 // this
+// console.log(this);
 
-// call apply bind
+// (function() {
+//     console.log(this);
+// })();
+
+// const myObj = {
+//     name: 'Dio',
+//     age: 18,
+
+//     foo: function() {
+//         console.log(this);
+
+//         const bar = function() {
+//             console.log(this);
+//         }
+//         bar();
+//     }
+// }
+
+// myObj.foo();
+
+// class Person {
+//     constructor(name) {
+//         this.name = name;
+//     }
+
+//     run() {
+//         console.log(this);
+//     }
+
+//     static staticRun() {
+//         console.log(this);
+//     }
+// }
+
+// const p = new Person('Dio');
+// p.run();
+// Person.staticRun();
+
+// 1. Function: this--> gloabl/window;
+// 2. Object: if the funtions belongs to an object, this--> object.
+// 3.1 Class: if "this" is in the class, this--> instance
+// 3.2 Class: special case, if "this" is in the static method, this --> class
+
+
+// bind call apply 
+
+//* lazyloading 
+// const obj = {
+//     pi: 3.14,
+
+//     getPi() {
+//         return this.pi;
+//     }
+// }
+
+// function getPerimeter(radius) {
+//     console.log(this.getPi() * 2 * radius)
+// };
+
+// //* getPerimeter(20);
+
+// const newGetPerimeter = getPerimeter.bind(obj);
+// newGetPerimeter(20);
+
+// //* call eagarloading
+// getPerimeter.call(obj, 12);
+
+// call vs aplly
+
+// const obj = {
+//     area: 1000,
+//     getArea() {
+//         return this.area;
+//     }
+// }
+
+// function getNum(num1, num2) {
+//     console.log(this.getArea(), num1, num2);
+// }
+
+// getNum.call(obj, 1, 2);
+
+// getNum.apply(obj, [1, 2]);
+
+
+// call and bind 
+
+// const myObj = {
+//     name: 'Dio',
+//     age: 18,
+
+//     foo: function() {
+//         console.log(this);
+
+//         (function() {
+//             console.log(this);
+//         }).apply(this); // this = myObj;
+
+//         const bar = function() {
+//             console.log(this);
+//         }
+
+//         const newBar = bar.bind(this);
+//         newBar();
+//     }
+// }
+
+// myObj.foo();
+
 
 // arrow function 
+//* some syntax
+// const foo = (a, b) => a + b;
+// * With arrow functions the this keyword always represents the object that defined the arrow function.
+// const myObj = {
+//     name: 'Dio',
+//     age: 18,
 
-// event loop   an example of using var 
+//     foo: function() {
+//         console.log(this);
+
+//         const bar = function() {
+//             console.log(this);
+//         }
+//         bar();
+
+//         const baz = () => {
+//             console.log(this);
+//         }
+
+//         baz();
+//     }
+// }
+
+// myObj.foo();
+
+
+// const arr = [1, 2, 3, 4, 5];
+
+// // console.log(Array);
+// Array.prototype.myforEach = (fn) => {
+//     for (let i = 0; i < this.length; i++) {
+//         fn(this[i], i, this);
+//     }
+// }
+
+// arr.myforEach(function(ele) {
+//     console.log(ele);
+// })
+
+// currying
+// function calculateVolume(length) {
+//     return function (breadth) {
+//         return function (height) {
+//             return length * breadth * height;
+//         }
+//     }
+// }
+// console.log(calculateVolume(4)(5)(6));
+
+// const callback1 = a => a + 2; // 12
+// const callback2 = b => b * 2; // 24
+// const callback3 = c => c / 3; // 8
+
+// // // use whatever callback you want...
+// console.log(runAll(callback1, callback2, callback3)(10));
+
+// function runAll (...args) {
+//     return function(num) {
+//         // return args.reduce((prev, currCb) => {
+//         //     return currCb(prev);
+//         // }, num);
+//         let res = num;
+//         for (let i in args) {
+//             res = args[i](res);
+//         }
+//         return res;
+//     }
+// }
+
+// event loop   
+// setTimeout(function(){
+//     console.log(1);
+// }, 2000)
+
+
+// console.log(0);
+// setTimeout(function(){
+//     console.log(1);
+// }, 1000);
+// console.log(2); // infinate loop 
+
+// call stack       |      async api/ web api       | task queue/ callback queue
+
+// console.log(0); gone
+
+// setTimeout(....) gone --->    sconsole.log(1), after 1s ->   console.log(1) (watch stack)-> stack
+
+
+// console.log(2); gone;
+
+// console.log(1); gone;
+
+
+// function foo() {
+
+//     var i = undefined;
+
+//     for (let i = 1; i < 5; i++) {
+//         let i
+//         setTimeout(() => console.log(i), i * 1000);
+
+//     } // -> done
+//     // / 0.0000000000000001s
+
+//     // i -> 5
+
+// }
+
+// the close will help the return part to hold some data or logic from outter /parent function scope.
+// a closure gives you access to an outer/parent function's scope from an inner function.
+
+// foo();
+
+// let i = 1;
+// function foo() {
+//     console.log(i);
+// }
+// setTimeout(foo, i*1000);
+// i = 5;
+
+// console.log(i), 1s -> async api;
+// console.log(i), 2s -> async api;
+// console.log(i), 3s -> async api;
+// console.log(i), 4s -> async api;
+// console.log(i), 5s -> async api;  -> 5 
+
+
+// console.log(5); 
+
+// function foo() {
+
+//     for (var i = 1; i <= 5; i++) {
+
+//         (function(1){
+//             setTimeout(() => console.log(v), v * 1000);
+//         })(1)
+
+//     } 
+// }
+
+// foo();
+
 
 // -----------------Day4---------------------------------
 // XHR
