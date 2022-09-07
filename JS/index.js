@@ -490,7 +490,8 @@
 //     }
 //     return displayName;
 // }
-// console.log(myFn());
+// myFn();
+
 
 // function makeAdder(x) {
 //     return function (y) {
@@ -718,7 +719,7 @@
 
 //     var i = undefined;
 
-//     for (let i = 1; i < 5; i++) {
+//     for ( i = 1; i < 5; i++) {
 //         let i
 //         setTimeout(() => console.log(i), i * 1000);
 
@@ -734,7 +735,7 @@
 
 // foo();
 
-// let i = 1;
+// var i = 1;
 // function foo() {
 //     console.log(i);
 // }
