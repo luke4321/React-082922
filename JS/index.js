@@ -751,13 +751,10 @@
 // console.log(5); 
 
 // function foo() {
-
 //     for (var i = 1; i <= 5; i++) {
-
-//         (function(1){
+//         (function(){
 //             setTimeout(() => console.log(v), v * 1000);
-//         })(1)
-
+//         })(i)
 //     } 
 // }
 
@@ -775,4 +772,4 @@
 
 // -----------------Day5---------------------------------
 
-// // Todolis
+// // Todolist
